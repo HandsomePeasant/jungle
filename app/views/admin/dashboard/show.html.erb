@@ -1,2 +1,20 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="dashboard-show">
+<header class="dashboard-header">
+  <h1>Admin &raquo; Dashboard</h1>
+</header>
+
+<div class="dashboard-summary">
+    <p>Total Items: <%= @total_items %><br>
+    Total Categories: <%= @total_categories %></p>
+  </div>
+
+  <div class="items-per-category">
+    <h4>Items per Category</h4>
+    <ul>
+      <% @items_per_category.each do |category, count| %>
+        <li><%= "#{category}: #{count}" %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'Product List', [:admin, :products], class: 'btn btn-info' %>
+  </div>
+</section>
